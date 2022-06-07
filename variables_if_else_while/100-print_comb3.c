@@ -26,7 +26,7 @@ int main(void)
 
 			second++;
 			uniq--;
-		}	
+		}
 
 		first++;
 	}
