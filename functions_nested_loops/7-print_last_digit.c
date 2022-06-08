@@ -7,6 +7,12 @@
  */
 int print_last_digit(int n)
 {
+	if (n == -2147483648)
+	{
+		n = 8;
+		return (n);
+	}
+
 	if (n < 0)
 		n *= -1;
 
