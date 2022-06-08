@@ -1,4 +1,7 @@
 int _putchar(char c);
+int first_digit(int n);
+int last_digit(int n);
+void print_2digit_number(int n);
 void print_alphabet(void);
 void print_alphabet_x10(void);
 int _islower(int c);
