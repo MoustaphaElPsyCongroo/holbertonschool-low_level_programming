@@ -9,7 +9,7 @@ int print_last_digit(int n)
 {
 	if (n == -2147483648)
 	{
-		n = 8;		
+		n = 8;
 		_putchar(n + '0');
 
 		return (n);
