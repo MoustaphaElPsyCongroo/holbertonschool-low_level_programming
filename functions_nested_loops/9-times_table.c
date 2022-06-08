@@ -54,11 +54,10 @@ void times_table(void)
 	{
 		for (j = 0; j < 10; j++)
 		{
+
 			result = i * j;
 
-			print_2digit_number(result);
-
-			if (j < 9)
+			if (j < 10 && j > 0)
 			{
 				_putchar(',');
 				_putchar(' ');
@@ -66,6 +65,10 @@ void times_table(void)
 				if (result < 10)
 					_putchar(' ');
 			}
+
+			print_2digit_number(result);
+
+
 		}
 
 		_putchar('\n');
