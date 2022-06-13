@@ -1,4 +1,6 @@
 int _putchar(char c);
+int first_digit(int n);
+int last_digit(int n);
 int _isupper(int c);
 int _isdigit(int c);
 int mul(int a, int b);
