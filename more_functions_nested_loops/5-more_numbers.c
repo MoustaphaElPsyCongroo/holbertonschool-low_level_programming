@@ -31,15 +31,11 @@ int last_digit(int n)
  */
 void print_2digit_number(int n)
 {
-	if (n < 10)
-	{
-		_putchar(n + '0');
-	}
-	else
-	{
-		_putchar(first_digit(n) + '0');
+	_putchar(first_digit(n) + '0');
+
+	if (n > 9)
 		_putchar(last_digit(n) + '0');
-	}
+
 }
 
 /**
