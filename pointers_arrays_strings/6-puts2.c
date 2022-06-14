@@ -9,9 +9,12 @@ void puts2(char *str)
 	char *i = str;
 
 	do {
-		_putchar(*i);
+		if (*i)
+			_putchar(*i);
+		else
+			break;
 		i += 2;
-	} while (*i && *(i - 1));
+	} while (*(i - 1));
 
 	_putchar('\n');
 }
