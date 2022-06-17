@@ -12,6 +12,9 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i]; i++)
 	{
+		if (i == 0 && str[i] >= 97 && str[i] <= 122)
+			str[i] -= 32;
+
 		if (
 				str[i] == ' ' ||
 				str[i] == '\t' ||
