@@ -14,14 +14,10 @@ void print_diagsums(int *a, int size)
 	int second_diag = 0;
 
 	for (i = 0; i < size; i++)
-	{
 		first_diag += a[i * (size + 1)];
-	}
 
 	for (i = size; i > 0; i--)
-	{
 		second_diag += a[i * (size - 1)];
-	}
 
 	printf("%d, %d\n", first_diag, second_diag);
 }
