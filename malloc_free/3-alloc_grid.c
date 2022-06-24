@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <limits.h>
-
 /**
  * alloc_grid - Initializes a 2 dimensional array of zeroes
  * @width: The number of sub arrays
@@ -20,11 +19,11 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	a = malloc(sizeof(int *) * width);
+	a = (int **)malloc(sizeof(int) * height);
 
 	for (i = 0; i < height; i++)
 	{
-		a[i] = malloc(sizeof(int) * (width + 1));
+		a[i] = (int *)malloc(sizeof(int) * (width + 1));
 
 		if (a[i] == NULL)
 		{
@@ -32,8 +31,7 @@ int **alloc_grid(int width, int height)
 
 			for (temp = -1; temp < i; temp++)
 				free(a[temp + 1]);
-			
-			free(a);
+
 			return (NULL);
 		}
 	}
