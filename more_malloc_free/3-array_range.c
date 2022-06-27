@@ -29,7 +29,7 @@ int *array_range(int min, int max)
 	if (a == NULL)
 		return (NULL);
 
-	while (i < max - min)
+	while (i < size)
 		a[i++] = j++;
 
 	return (a);
