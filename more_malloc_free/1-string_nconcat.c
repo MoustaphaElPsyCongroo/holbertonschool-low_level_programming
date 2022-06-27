@@ -14,11 +14,11 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *s;
-	unsigned int i;
+	unsigned int i = 0;
 	unsigned int s1_length = 0;
 	unsigned int s2_length  = 0;
 	unsigned int bytes_toconcat = 0;
+	char *s;
 
 	if (s1 != NULL)
 	{
@@ -41,13 +41,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s == NULL)
 		return (NULL);
 
-	for (i = 0; i < s1_length + bytes_toconcat; i++)
+	while (i < s1_length + bytes_toconcat)
 	{
 		if (i < s1_length)
 			s[i] = s1[i];
 		else
 			s[i] = s2[i - s1_length];
+
+		i++;
 	}
+
+	s[i] = '\0';
 
 	return (s);
 }
