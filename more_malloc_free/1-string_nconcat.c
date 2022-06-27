@@ -20,11 +20,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int s2_length  = 0;
 	unsigned int bytes_toconcat = 0;
 
-	while (s1[s1_length] && s1 != NULL)
-		s1_length++;
+	if (s1 != NULL)
+	{
+		while (s1[s1_length])
+			s1_length++;
+	}
 
-	while (s2[s2_length] && s2 != NULL)
-		s2_length++;
+	if (s2 != NULL)
+	{
+		while (s2[s2_length])
+			s2_length++;
+	}
 
 	bytes_toconcat = s2_length;
 	if (n < s2_length)
