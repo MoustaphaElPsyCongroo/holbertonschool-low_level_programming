@@ -1,5 +1,6 @@
 # C - malloc, free
 
+## Scripts and exercices descriptions
 ## Learning Objectives
 
 ### General
