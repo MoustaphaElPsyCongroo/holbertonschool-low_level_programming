@@ -5,6 +5,7 @@
 *   How to use the `exit` function
 *   What are the functions `calloc` and `realloc` from the standard library and how to use them
 
+## Scripts and exercices descriptions
 ### 0-malloc_checked.c
 Write a function that allocates memory using `malloc`.
 
@@ -38,3 +39,4 @@ Write a function that creates an array of integers.
 *   Return: the pointer to the newly created array
 *   If `min` > `max`, return `NULL`
 *   If `malloc` fails, return `NULL`
+
