@@ -36,7 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n < s2_length)
 		bytes_toconcat = n;
 
-	s = malloc(sizeof(char) * (s1_length + bytes_toconcat + 6));
+	s = malloc(sizeof(char) * (s1_length + bytes_toconcat + 1));
 
 	if (s == NULL)
 		return (NULL);
