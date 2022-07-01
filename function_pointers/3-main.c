@@ -27,12 +27,13 @@ int main(int argc, char **argv)
 
 	op = argv[2];
 
-	if (
+	if ((
 			op[0] != '+' &&
 			op[0] != '-' &&
 			op[0] != '*' &&
 			op[0] != '/' &&
-			op[0] != '%')
+			op[0] != '%') ||
+			op[1] != '\0')
 	{
 		puts("Error");
 		exit(99);
