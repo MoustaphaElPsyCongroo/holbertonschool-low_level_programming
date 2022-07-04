@@ -18,12 +18,15 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 		while (i--)
 		{
-			printf("%s", va_arg(strings, int *) ? va_arg(strings, int *) : "(nil)");
+			const char *string = va_arg(strings, const char *);
+
+			printf("%s", string ? string : "(nil)");
 
 			if (i > 0 && separator != NULL)
 				printf("%s", separator);
 		}
 
 		putchar('\n');
+		va_end(strings);
 	}
 }
