@@ -16,10 +16,7 @@ int pop_listint(listint_t **head)
 		return (0);
 
 	if ((*head)->next == NULL)
-	{
-		free(*head);
 		return (0);
-	}
 
 	old_data = (*head)->n;
 	newhead = (*head)->next;
