@@ -1,3 +1,4 @@
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -11,7 +12,12 @@ void print_binary(unsigned long int n)
 	int digits;
 
 	while (k << j <= n)
+	{
+		if (j == 64)
+			break;
+
 		j++;
+	}
 
 	if (j > 0)
 		j--;
