@@ -27,6 +27,9 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	digits = j + 1;
 
+	if (index > digits)
+		return (0);
+
 	while (digits > index)
 	{
 		unsigned long int bit = k << j;
