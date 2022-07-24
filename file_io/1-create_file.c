@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -24,8 +25,6 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	length = strlen(text_content);
-
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
 
 	if (fd == -1)
@@ -33,6 +32,7 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
+		length = strlen(text_content);
 		written = write(fd, text_content, length);
 
 		if (written == -1)
