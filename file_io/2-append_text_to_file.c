@@ -7,15 +7,15 @@
 #include "main.h"
 
 /**
- * create_file - Creates a file, optionally writing in it
- * @filename: Path of the file to create
- * @text_content: Optional text content of the file
+ * append_text_to_file - Appends text at the end of a file
+ * @filename: Path of the file
+ * @text_content: Text to append to the file
  *
  * Return:
- *	1 if success
- *	0 if fail or filename NULL
+ *	1 if success (also if NULL text_content but file exists)
+ *	-1 if fail or NULL text_content and file doesn't exist
  */
-int create_file(const char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
 	int length;
@@ -24,7 +24,7 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	fd = open(filename, O_WRONLY | O_APPEND);
 
 	if (fd == -1)
 		return (-1);
@@ -39,6 +39,5 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	close(fd);
-
 	return (1);
 }
