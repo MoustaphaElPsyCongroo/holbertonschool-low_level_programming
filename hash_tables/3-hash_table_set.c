@@ -2,18 +2,21 @@
 #include <string.h>
 #include <stdlib.h>
 
+hash_node_t *add_node_beginning(hash_node_t **, char *, const char *);
+
 /**
- * add_node_end - Adds a new node at the end of a linked list
+ * add_node_beginning - Adds a new node at the end of a linked list
  * @head: A linked list
- * @str: The content of the new node
+ * @key: THe key of the new node
+ * @value: The content of the new node
  *
  * Return: The address of the new element, or NULL if fail
  */
-hash_node_t *add_node_end(hash_node_t **head, char *key, const char *str)
+hash_node_t *add_node_beginning(hash_node_t **head, char *key, const char *value)
 {
-	hash_node_t *last;
-	hash_node_t *new_node;
-	char *s = strdup(str);
+	hash_node_t *new_head;
+	char *s = strdup(value);
+	int length = 0;
 
 	if (s == NULL)
 	{
@@ -21,32 +24,24 @@ hash_node_t *add_node_end(hash_node_t **head, char *key, const char *str)
 		return (NULL);
 	}
 
-	new_node = malloc(sizeof(hash_node_t));
+	new_head = malloc(sizeof(hash_node_t));
 
-	if (new_node == NULL)
+	if (new_head == NULL)
 	{
 		free(s);
-		free(new_node);
+		free(new_head);
 		return (NULL);
 	}
 
-	new_node->value = s;
-	new_node->key = key;
-	new_node->next = NULL;
+	while (s[length])
+		length++;
 
-	if (*head == NULL)
-	{
-		*head = new_node;
-		return (new_node);
-	}
+	new_head->key = key;
+	new_head->value = s;
+	new_head->next = *head;
+	*head = new_head;
 
-	last = *head;
-	while (last->next != NULL)
-		last = last->next;
-
-	last->next = new_node;
-
-	return (new_node);
+	return (new_head);
 }
 
 /**
@@ -69,7 +64,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 
 	head = ht->array[index];
-	success = add_node_end(&head, (char *)key, value);
+	success = add_node_beginning(&head, (char *)key, value);
 
 	if (!success)
 		return (0);
